@@ -1,0 +1,13 @@
+{
+  "name": "npmdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.24.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.72.0"
+  }
+}
