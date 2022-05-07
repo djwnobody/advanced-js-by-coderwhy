@@ -1,6 +1,6 @@
 function isObject(value) {
-  const valueType = typeof value
-  return (value !== null) && (valueType === "object" || valueType === "function")
+  const valueType = typeof value // 为'object'的3种情况：null、obj、arr
+  return (value !== null) && (valueType === "object" || valueType === "function")//obj、arr、fn
 }
 
 function deepClone(originValue) {
@@ -10,7 +10,7 @@ function deepClone(originValue) {
   }
 
   const newObject = {}
-  for (const key in originValue) {
+  for (const key in originValue) { //遍历不到作为Symbol的key
     newObject[key] = deepClone(originValue[key])
   }
   return newObject
