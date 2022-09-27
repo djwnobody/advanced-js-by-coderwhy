@@ -16,7 +16,7 @@ class HYPromise {
         queueMicrotask(() => {
           this.value = value
           this.onFulfilled(this.value)
-        });
+        })
       }
     }
 
@@ -40,24 +40,28 @@ class HYPromise {
 }
 
 const promise = new HYPromise((resolve, reject) => {
-  console.log("状态pending")
+  console.log('状态pending')
+  setTimeout(() => {
+    resolve(1111)
+  }, 1000)
   // reject(2222)
-  resolve(1111)
 })
 
 // 调用then方法
-promise.then(res => {
-  console.log("res1:", res)
-  return 1111
-}, err => {
-  console.log("err:", err)
-}).then(res => {
-  console.log("res3:", res)
-})
-
 // promise.then(res => {
-//   console.log("res2:", res)
+//   console.log("res1:", res)
+//   return 1111
 // }, err => {
-//   console.log("err2:", err)
+//   console.log("err:", err)
+// }).then(res => {
+//   console.log("res3:", res)
 // })
 
+promise.then(
+  (res) => {
+    console.log('res1:', res)
+  },
+  (err) => {
+    console.log('err2:', err)
+  }
+)

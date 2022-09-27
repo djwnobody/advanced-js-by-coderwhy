@@ -1,5 +1,5 @@
 // Promise有哪些对象方法
-// console.log(Object.getOwnPropertyDescriptors(Promise.prototype))
+console.log(Object.getOwnPropertyDescriptors(Promise.prototype))
 
 const promise = new Promise((resolve, reject) => {
   resolve('hahaha')
@@ -23,12 +23,11 @@ promise.then((res) => {
 // then方法本身也是有返回值的, 它的返回值是Promise
 
 // 1> 如果我们返回的是一个普通值(数值/字符串/普通对象/undefined), 那么这个普通的值被作为一个新的Promise的resolve值
-// promise.then(res => {
-//   return "aaaaaa"
-// }).then(res => {
-//   console.log("res:", res)
-//   return "bbbbbb"
-// })
+promise.then(res => {
+  return "aaaaaa"
+}).then(res => {
+  console.log("res:", res)
+})
 
 // 2> 如果我们返回的是一个Promise
 // promise.then(res => {

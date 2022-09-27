@@ -9,19 +9,17 @@
  */
 
 // 1.传入Promise的特殊情况
-// const newPromise = new Promise((resolve, reject) => {
-//   // resolve("aaaaaa")
-//   reject("err message")
-// })
+const newPromise = new Promise((resolve, reject) => {
+  reject("err message")
+})
 
-// new Promise((resolve, reject) => {
-//   // pending -> fulfilled
-//   resolve(newPromise)  // 这一行resolve已经失效，看传入的promise的状态
-// }).then(res => {
-//   console.log("res:", res)
-// }, err => {
-//   console.log("err:", err)
-// })
+new Promise((resolve, reject) => {
+  resolve(newPromise)  // 这一行resolve已经失效，看传入的promise的状态
+}).then(res => {
+  console.log("res:", res)
+}, err => {
+  console.log("err:", err)
+})
 
 // 2.传入一个对象, 这个兑现有then方法
 new Promise((resolve, reject) => {
